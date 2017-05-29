@@ -34,3 +34,41 @@ insert into item(name,heigth,width,depth,made_of,in_stock)values
 ('Speaker','2','1.5','4.7','WO',145),
 ('Table','12','3','4','WO',12),
 ('TV','2','7','5','PL',100);
+SELECT 
+    descr, cost, 0.1 * cost AS tax
+FROM
+    material;
+SELECT 
+    name, heigth * width * depth AS volumen
+FROM
+    item
+WHERE
+    heigth * width * depth > '100.00';
+    
+SELECT 
+    a.name,
+    a.heigth * a.width * a.depth AS volumen,
+    b.descr AS material
+FROM
+    item a,
+    material b
+WHERE
+    a.made_of = b.material_id
+ORDER BY a.name ASC;
+
+SELECT 
+    a.name, (a.heigth * a.width * a.depth) * b.density AS weigth
+FROM
+    item a,
+    material b
+WHERE
+    a.made_of = b.material_id
+ORDER BY a.name ASC;
+SELECT 
+    a.name, (a.heigth * a.width * a.depth) * b.density*b.cost AS price
+FROM
+    item a,
+    material b
+WHERE
+    a.made_of = b.material_id
+ORDER BY a.name ASC;
