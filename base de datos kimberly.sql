@@ -72,3 +72,42 @@ FROM
 WHERE
     a.made_of = b.material_id
 ORDER BY a.name ASC;
+SELECT 
+    name, heigth, heigth % 5 AS remainder
+FROM
+    item;
+SELECT 
+    name, in_stock
+FROM
+    item
+WHERE
+    in_stock % 2 = 0;
+SELECT 
+    name, heigth, width, POWER(heigth, 2) AS evaluator
+FROM
+    item;
+SELECT 
+    descr,
+    cost,
+    ROUND(cost, 0) AS redondo,
+    density,
+    ROUND(density, 1) AS dens
+FROM
+    material;
+SELECT 
+    descr,
+    cost,
+    TRUNCATE(cost, 0) AS redondo,
+    density,
+    TRUNCATE(density, 1) AS dens
+FROM
+    material;
+SELECT 
+    '0.14678' * density AS x,
+    ROUND('0.14678' * density, 2) AS round_x
+FROM
+    material;
+SELECT 
+    2.2 * density AS x, FLOOR(2.2 * density) AS floor_x
+FROM
+    material;
