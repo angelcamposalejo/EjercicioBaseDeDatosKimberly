@@ -107,7 +107,38 @@ SELECT
     ROUND('0.14678' * density, 2) AS round_x
 FROM
     material;
+
 SELECT 
     2.2 * density AS x, FLOOR(2.2 * density) AS floor_x
+FROM
+    material;
+SELECT 
+    name,
+    LPAD(name, 15, '+') AS name_left,
+    RPAD(name, 15, '*') AS name_right,
+    in_stock,
+    LPAD(in_stock, 5, '-') AS st_left,
+    RPAD(in_stock, 5, '#') AS st_rigth
+FROM
+    item
+WHERE
+    in_stock > 100;
+SELECT 
+    descr,
+    RTRIM(descr) AS no_l,
+    LTRIM(descr) AS no_P,
+    LTRIM(descr) AS no_p
+FROM
+    material;
+SELECT 
+    descr, REPLACE(descr, 'oo', 'eee') AS hey
+FROM
+    material;
+SELECT 
+    descr, SUBSTR(descr, 2, 3) AS letter
+FROM
+    material;
+SELECT 
+    descr, LENGTH(descr) AS descr_len
 FROM
     material;
